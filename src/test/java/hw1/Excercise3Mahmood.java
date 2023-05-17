@@ -21,7 +21,6 @@ public class Excercise3Mahmood {
 
 		driver.manage().window().maximize();
 			
-			
 		// Register link
 		WebElement registerLink = driver.findElement(By.xpath("//a[text()='Register']"));
 
