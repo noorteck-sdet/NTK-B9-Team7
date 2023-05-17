@@ -1,0 +1,52 @@
+package hw1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class NeginaHW1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\hedas\\Desktop\\Selenium\\chromedriver.exe");
+		
+		WebDriver driver=new ChromeDriver();
+		Thread.sleep(3000);
+		
+		driver.get("https://ntkhr.noortecktraining.com/web/index.php/auth/login");
+		
+		Thread.sleep(3000);
+		
+		WebElement username= driver.findElement(By.name("username"));
+		username.sendKeys("ntk-admin");
+		
+		Thread.sleep(3000);
+
+		WebElement password= driver.findElement(By.name("password"));
+		password.sendKeys("Ntk-orange!admin.123");
+		
+		Thread.sleep(3000);
+		
+		WebElement button= driver.findElement(By.tagName("button"));
+		button.click();
+		
+		Thread.sleep(3000);
+		
+		WebElement Header= driver.findElement(By.tagName("h6"));
+		String headername=Header.getText();
+		
+		if(headername.equals("Dashboard")) {
+		System.out.println("Header is dashboard , test is PASSED");
+		}
+		else {
+			System.out.println("header is not Dashboard, test is FAILED");
+		}
+		
+		Thread.sleep(3000);
+		driver.quit();
+
+		
+	}
+
+}
